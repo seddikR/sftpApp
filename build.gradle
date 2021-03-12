@@ -1,0 +1,28 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.gm'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile group: 'org.apache.sshd', name: 'sshd-core', version: '1.4.0'
+	//compile group: 'org.apache.sshd', name: 'sshd-scp', version: '2.1.0'
+	implementation 'org.apache.sshd:sshd-sftp:2.0.0'
+	compile 'commons-codec:commons-codec:1.15'
+	compile "org.springframework.integration:spring-integration-sftp:5.0.7.RELEASE"
+	implementation 'org.springframework.boot:spring-boot-starter-integration'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.integration:spring-integration-test'
+}
+
+test {
+	useJUnitPlatform()
+}
